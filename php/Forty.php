@@ -6,7 +6,7 @@ class Forty extends AbstractScore
 {
     public function next(): ScoreInterface
     {
-        return new FortyFive($this->getPlayer());
+        return new Set($this->getPlayer());
     }
 
     public function __toString(): string

@@ -21,22 +21,18 @@ class Ladder implements GameInterface
 
     public function next(PlayerInterface $player): GameInterface
     {
-        /**
-         * @var ScoresInterface $scores
-         */
         $scores = $this->scores->next($player);
-        $tie = $scores->areEqual();
-        $next = $scores->scoreByPlayer($player);
+        $next = $scores->byPlayer($player);
 
         switch (true) {
-            case $tie && $next instanceof Forty:
-                return new Deuce();
-            case $tie:
-                return new Tie($scores);
-            case $next instanceof FortyFive:
+            case $next instanceof Set:
                 return new Game($next->getPlayer());
+            case $scores->areEqual() && $next instanceof Forty:
+                return new Deuce();
             default:
-                return new Ladder($scores);
+                return $scores->areEqual()
+                    ? new Tie($scores)
+                    : new Ladder($scores);
         }
     }
 

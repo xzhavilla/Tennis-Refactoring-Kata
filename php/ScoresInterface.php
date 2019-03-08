@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 interface ScoresInterface
 {
-    public function scoreByPlayer(PlayerInterface $player): ScoreInterface;
+    public function byPlayer(PlayerInterface $player): ScoreInterface;
 
     public function next(PlayerInterface $player): ScoresInterface;
 

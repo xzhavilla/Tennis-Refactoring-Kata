@@ -37,7 +37,7 @@ class Scores implements ScoresInterface
         return $this->fst()->equals($this->snd());
     }
 
-    public function scoreByPlayer(PlayerInterface $player): ScoreInterface
+    public function byPlayer(PlayerInterface $player): ScoreInterface
     {
         if (! array_key_exists($player->getName(), $this->scores)) {
             throw new \RuntimeException();

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-class FortyFive extends AbstractScore
+class Set extends AbstractScore
 {
     public function next(): ScoreInterface
     {
@@ -11,6 +11,6 @@ class FortyFive extends AbstractScore
 
     public function __toString(): string
     {
-        return 'FortyFive';
+        return 'Set';
     }
 }
